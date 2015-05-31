@@ -10,11 +10,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr ng-repeat="account in accounts">
+                <td><img ng-src="{{ account.photo }}" /></td>
+                <td>{{ account.first_name }}</td>
+                <td>{{ account.last_name }}</td>
+                <td>{{ account.iban }}</td>
                 <td></td>
             </tr>
         </tbody>

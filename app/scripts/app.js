@@ -1,42 +1,41 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name bankApp
- * @description
- * # bankApp
- *
- * Main module of the application.
- */
 angular
-    .module('bankApp', [
-        'ngAnimate',
-        'ngCookies',
-        'ngResource',
-        'ngRoute',
-        'ngSanitize',
-        'ngTouch',
-        'route-segment',
-        'view-segment',
-        'ng'
-    ])
-    .config(function ($routeSegmentProvider, $routeProvider) {
-        $routeSegmentProvider.otherwise = function (route) {
-            $routeProvider.otherwise({redirectTo: route});
-            return this;
-        };
-        $routeSegmentProvider
-            .when('/', 'base.auth')
-            .when('/accounts', 'base.accounts_list')
-            .otherwise('/')
-            .segment('base', {
-                templateUrl: 'views/base.html'
-            }).within()
-                .segment('auth', {
-                    templateUrl: 'views/auth.html'
-                })
-                .segment('accounts_list', {
-                    templateUrl: 'views/accounts/list.html'
-                })
-            .up();
-    });
+  .module('bankApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'ipCookie',
+    'route-segment',
+    'view-segment',
+    'ng'
+  ])
+  .value("API_ROOT", "http://0.0.0.0:8000/api/")
+  .config(function ($routeSegmentProvider, $routeProvider, $locationProvider) {
+    $locationProvider.html5Mode({enabled: true});
+    $routeSegmentProvider.otherwise = function (route) {
+      $routeProvider.otherwise({redirectTo: route});
+      return this;
+    };
+    $routeSegmentProvider
+      .when('/', 'base.accounts_list')
+      .when('/auth/', 'base.auth')
+      .when('/auth/complete/', 'base.auth_complete')
+      .otherwise('/')
+      .segment('base', {
+        templateUrl: 'views/base.html'
+      }).within()
+        .segment('auth', {
+          templateUrl: 'views/auth.html'
+        })
+        .segment('auth_complete', {
+          controller: 'AuthCompleteCtrl'
+        })
+        .segment('accounts_list', {
+          templateUrl: 'views/accounts/list.html'
+        })
+      .up();
+  });

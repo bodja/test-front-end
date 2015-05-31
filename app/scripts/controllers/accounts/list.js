@@ -1,17 +1,15 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name bankApp.controller:AccountsListCtrl
- * @description
- * # AccountsListCtrl
- * Controller of the bankApp
- */
 angular.module('bankApp')
-  .controller('AccountsListCtrl', function ($scope) {
+  .controller('AccountsListCtrl', function ($scope, api) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    api.get('users/').then(
+      function (response) {
+        $scope.accounts = response.data;
+      }
+    );
   });

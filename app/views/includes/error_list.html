@@ -1,0 +1,2 @@
+<strong ng-repeat='(errorName, invalid) in form[fieldName].$error' ng-if="!form[fieldName].$pristine && invalid" force-render='errors[errorName]'>{{ errors[errorName] }}</strong>
+<strong ng-repeat='error in form.backendErrors[fieldName]'>{{ error }}</strong>

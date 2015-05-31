@@ -16,8 +16,8 @@
                 <td>{{ account.last_name }}</td>
                 <td>{{ account.iban }}</td>
                 <td>
-                    <span ng-click="removeAccount($index, account.id)" class="action remove glyphicon glyphicon-remove pull-right text-muted" aria-hidden="true"></span>
-                    <span class="action edit glyphicon glyphicon-pencil pull-right text-muted" aria-hidden="true"></span>
+                    <a ng-click="removeAccount($index, account.id)" class="action remove glyphicon glyphicon-remove pull-right text-muted" aria-hidden="true"></a>
+                    <a ng-href="{{ 'base.accounts_edit'|url:[account.id] }}" class="action edit glyphicon glyphicon-pencil pull-right text-muted" aria-hidden="true"></a>
                 </td>
             </tr>
         </tbody>

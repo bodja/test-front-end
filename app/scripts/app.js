@@ -22,6 +22,7 @@ angular
     };
     $routeSegmentProvider
       .when('/', 'base.accounts_list')
+      .when('/edit/:accId/', 'base.accounts_edit')
       .when('/auth/', 'base.auth')
       .when('/auth/complete/', 'base.auth_complete')
       .otherwise('/')
@@ -36,6 +37,9 @@ angular
         })
         .segment('accounts_list', {
           templateUrl: 'views/accounts/list.html'
+        })
+        .segment('accounts_edit', {
+          templateUrl: 'views/accounts/edit.html'
         })
       .up();
   });

@@ -30,6 +30,7 @@ angular.module('bankApp')
           $rootScope.token = undefined;
           $location.path('/auth/');
         }
+        deferred.reject(response);
       });
       return deferred.promise;
     }

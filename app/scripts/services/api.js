@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bankApp')
-  .service('api', function Api($http, $q, ipCookie, API_ROOT, $rootScope, $location) {
+  .service('api', function Api($http, $q, ipCookie, API_ROOT, $rootScope, $location, Notification) {
     function doRequest(method, url, data) {
       var deferred = $q.defer();
 
@@ -30,6 +30,10 @@ angular.module('bankApp')
           $rootScope.token = undefined;
           $location.path('/auth/');
         }
+        if (response.data)
+          Notification.error({message: response.data.detail, delay: 2000});
+        else
+          Notification.error({message: "Ooops!!! Something went wrong. Try to reload.", delay: 2000});
         deferred.reject(response);
       });
       return deferred.promise;

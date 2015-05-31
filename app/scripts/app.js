@@ -11,7 +11,8 @@ angular
     'ipCookie',
     'route-segment',
     'view-segment',
-    'ng'
+    'ng',
+    'ui-notification'
   ])
   .value("API_ROOT", "http://0.0.0.0:8000/api/")
   .config(function ($routeSegmentProvider, $routeProvider, $locationProvider) {
@@ -23,6 +24,7 @@ angular
     $routeSegmentProvider
       .when('/', 'base.accounts_list')
       .when('/edit/:accId/', 'base.accounts_edit')
+      .when('/create/', 'base.accounts_create')
       .when('/auth/', 'base.auth')
       .when('/auth/complete/', 'base.auth_complete')
       .otherwise('/')
@@ -39,7 +41,12 @@ angular
           templateUrl: 'views/accounts/list.html'
         })
         .segment('accounts_edit', {
-          templateUrl: 'views/accounts/edit.html'
+          templateUrl: 'views/accounts/edit.html',
+          controller: 'AccountsEditCtrl'
+        })
+        .segment('accounts_create', {
+          templateUrl: 'views/accounts/edit.html',
+        controller: 'AccountsCreateCtrl'
         })
       .up();
   });

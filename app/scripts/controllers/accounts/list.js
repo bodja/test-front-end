@@ -12,4 +12,10 @@ angular.module('bankApp')
         $scope.accounts = response.data;
       }
     );
+
+    $scope.removeAccount = function (index, id) {
+      api.del('users/' + id + '/').then(function (result) {
+        $scope.accounts.splice(index, 1);
+      });
+    };
   });

@@ -6,7 +6,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>IBAN</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +15,10 @@
                 <td>{{ account.first_name }}</td>
                 <td>{{ account.last_name }}</td>
                 <td>{{ account.iban }}</td>
-                <td></td>
+                <td>
+                    <span ng-click="removeAccount($index, account.id)" class="action remove glyphicon glyphicon-remove pull-right text-muted" aria-hidden="true"></span>
+                    <span class="action edit glyphicon glyphicon-pencil pull-right text-muted" aria-hidden="true"></span>
+                </td>
             </tr>
         </tbody>
     </table>

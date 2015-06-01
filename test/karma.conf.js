@@ -34,6 +34,8 @@ module.exports = function(config) {
       'bower_components/angular-route-segment/build/angular-route-segment.js',
       'bower_components/angular-cookie/angular-cookie.js',
       'bower_components/angular-ui-notification/dist/angular-ui-notification.min.js',
+      'bower_components/ng-file-upload/ng-file-upload.js',
+      'bower_components/angular-file-model/angular-file-model.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

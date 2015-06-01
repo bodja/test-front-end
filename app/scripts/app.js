@@ -12,7 +12,9 @@ angular
     'route-segment',
     'view-segment',
     'ng',
-    'ui-notification'
+    'ui-notification',
+    'ngFileUpload',
+    'file-model'
   ])
   .value("API_ROOT", "http://0.0.0.0:8000/api/")
   .config(function ($routeSegmentProvider, $routeProvider, $locationProvider) {

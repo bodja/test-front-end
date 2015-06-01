@@ -7,6 +7,7 @@ angular.module('bankApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.page_name = 'Create User Account';
     $scope.account = {};
     $scope.form = {};
     $scope.submit = function (accountData) {

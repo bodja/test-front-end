@@ -1,5 +1,5 @@
 'use strict';
-
+// TODO: refoactor this maybe
 angular.module('bankApp')
   .service('fileFormSubmit', function ($location, resolve, api, setDirtyForm, API_ROOT, Upload, ipCookie, Notification) {
     function upload (url, method, scope, data, redirect) {

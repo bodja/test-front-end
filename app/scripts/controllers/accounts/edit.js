@@ -8,6 +8,7 @@ angular.module('bankApp')
       'Karma'
     ];
     var accountId = $routeParams.accId;
+    $scope.page_name = 'Edit User Account';
 
     api.get('users/' + accountId + '/').then(function (response) {
       $scope.account = response.data;

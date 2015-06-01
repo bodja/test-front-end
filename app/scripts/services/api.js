@@ -4,7 +4,7 @@ angular.module('bankApp')
   .service('api', function Api($http, $q, ipCookie, API_ROOT, $rootScope, $location, Notification) {
     function doRequest(method, url, data) {
       var deferred = $q.defer();
-
+      var default_error_note = "Ooops!!! Something went wrong.";
       var headers = {
         'Content-Type': 'application/json'
       };
@@ -31,9 +31,9 @@ angular.module('bankApp')
           $location.path('/auth/');
         }
         if (response.data)
-          Notification.error({message: response.data.detail, delay: 2000});
+          Notification.error({message: response.data.detail || default_error_note, delay: 2000});
         else
-          Notification.error({message: "Ooops!!! Something went wrong. Try to reload.", delay: 2000});
+          Notification.error({message: default_error_note, delay: 2000});
         deferred.reject(response);
       });
       return deferred.promise;

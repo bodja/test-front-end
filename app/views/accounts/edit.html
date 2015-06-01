@@ -1,11 +1,11 @@
 <div class="row">
-    <form name="form.accountForm">
+    <form name="form" url="users/">
         <div class="form-group col-lg-5 col-md-6">
             <img ng-src="{{ account.photo_thumbnail }}" />
-            <input type="file" file-model="userPhoto" />
-            <div ng-hide="!userPhoto.progress || userPhoto.progress==100" class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ userPhoto.progress||0 }}%;">
-                {{ userPhoto.progress }}%
+            <input type="file" file-model="fileModel" />
+            <div ng-hide="!fileModel.progress || fileModel.progress==100" class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ fileModel.progress||0 }}%;">
+                {{ fileModel.progress }}%
               </div>
             </div>
         </div>
@@ -13,24 +13,24 @@
             <div class="form-group">
                 <label for="id_first_name">First Name</label>
                 <input ng-model="account.first_name" required name="first_name" type="text" class="form-control" id="id_first_name">
-                <div class="help-block" error-list='form.accountForm' field-name='"first_name"'></div>
+                <div class="help-block" error-list='form' field-name='"first_name"'></div>
             </div>
             <div class="form-group">
                 <label for="id_last_name">Last Name</label>
                 <input ng-model="account.last_name" required name="last_name" type="text" class="form-control" id="id_last_name">
-                <div class="help-block" error-list='form.accountForm' field-name='"last_name"'></div>
+                <div class="help-block" error-list='form' field-name='"last_name"'></div>
             </div>
             <div class="form-group">
                 <label for="id_iban">IBAN</label>
                 <input ng-model="account.iban" required name="iban" type="text" class="form-control" id="id_iban">
-                <div class="help-block" error-list='form.accountForm' field-name='"iban"'></div>
+                <div class="help-block" error-list='form' field-name='"iban"'></div>
             </div>
             <div class="form-group">
                 <label for="id_email">Email</label>
                 <input ng-model="account.email" email name="email" type="text" class="form-control" id="id_email">
-                <div class="help-block" error-list='form.accountForm' field-name='"email"'></div>
+                <div class="help-block" error-list='form' field-name='"email"'></div>
             </div>
-            <button ng-click="upload(account)" type="submit" class="btn btn-primary">Submit</button>
+            <button ng-click="submit(account)" type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>
